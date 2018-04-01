@@ -7,8 +7,7 @@ node('master') {
     }
     stage('ContinuousBuild') {
     
-    sh '''mvn clean
-    mvn package'''
+    sh '''mvn clean mvn package'''
     
     }    
     stage('ContinuousDepolyment') {
