@@ -13,7 +13,7 @@ node('master') {
     }    
     stage('ContinuousDepolyment') {
         
-    sh 'scp -pr  /var/lib/jenkins/workspace/CodeAsPipelineFromGit/webapp/target/webapp.war vagrant@10.10.10.22:/var/lib/tomcat7/webapps/qaenv.war'
+    sh 'scp -pr  /var/jenkins_home/workspace/maven_master-CAUIYSUDU6ZFDVGYGIP7VKJC3KN5HUV5PRMYL7EAJJNZ7BAF4A7A/webapp/target/webapp.war vagrant@10.10.10.22:/var/lib/tomcat7/webapps/qaenv.war'
         
     }
     stage('ContinuousTesting') {
@@ -24,8 +24,8 @@ node('master') {
     }
     stage('ContinuousDelivery') {
         
-    input message: 'Please confirm to deploy the artifact into Production', submitter: 'jaggu,vinny'
-    sh 'scp -pr /var/lib/jenkins/workspace/CodeAsPipelineFromGit/webapp/target/webapp.war  vagrant@10.10.10.23:/var/lib/tomcat7/webapps/prodenv.war'
+   
+    sh 'scp -pr /var/jenkins_home/workspace/maven_master-CAUIYSUDU6ZFDVGYGIP7VKJC3KN5HUV5PRMYL7EAJJNZ7BAF4A7A/webapp/target/webapp.war  vagrant@10.10.10.23:/var/lib/tomcat7/webapps/prodenv.war'
     
     }
 
