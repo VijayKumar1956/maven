@@ -9,6 +9,7 @@ node('master') {
     
     sh '''mvn clean'''
     sh '''mvn package'''
+    sh 'chmod 777 /var/jenkins_home/workspace/maven_master-CAUIYSUDU6ZFDVGYGIP7VKJC3KN5HUV5PRMYL7EAJJNZ7BAF4A7A/webapp/target/webapp.war'
     
     }    
     stage('ContinuousDepolyment') {
