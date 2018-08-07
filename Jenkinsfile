@@ -9,12 +9,12 @@ node('master') {
     
     sh '''mvn clean'''
     sh '''mvn package'''
-    sh 'chmod 777 /var/jenkins_home/workspace/maven_master-CAUIYSUDU6ZFDVGYGIP7VKJC3KN5HUV5PRMYL7EAJJNZ7BAF4A7A/webapp/target/webapp.war'
+    sh 'chmod 777 /var/lib/jenkins/workspace/CodeAsPipeline/webapp/target/webapp.war'
     
     }    
     stage('ContinuousDepolyment') {
         
-    sh 'scp -pr  /var/jenkins_home/workspace/maven_master-CAUIYSUDU6ZFDVGYGIP7VKJC3KN5HUV5PRMYL7EAJJNZ7BAF4A7A/webapp/target/webapp.war vagrant@10.10.10.22:/var/lib/tomcat7/webapps/qaenv.war'
+    sh 'scp -pr  /var/lib/jenkins/workspace/CodeAsPipeline/webapp/target/webapp.warr vagrant@10.10.10.22:/var/lib/tomcat7/webapps/qaenv.war'
         
     }
     stage('ContinuousTesting') {
@@ -26,7 +26,7 @@ node('master') {
     stage('ContinuousDelivery') {
         
    
-    sh 'scp -pr /var/jenkins_home/workspace/maven_master-CAUIYSUDU6ZFDVGYGIP7VKJC3KN5HUV5PRMYL7EAJJNZ7BAF4A7A/webapp/target/webapp.war  vagrant@10.10.10.23:/var/lib/tomcat7/webapps/prodenv.war'
+    sh 'scp -pr /var/lib/jenkins/workspace/CodeAsPipeline/webapp/target/webapp.war  vagrant@10.10.10.23:/var/lib/tomcat7/webapps/prodenv.war'
     
     }
 
