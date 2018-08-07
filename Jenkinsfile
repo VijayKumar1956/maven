@@ -20,7 +20,7 @@ node('master') {
     stage('ContinuousTesting') {
     
     git 'https://github.com/VijayKumar1956/TestingOnLinux.git'
-    sh 'java -jar /var/lib/jenkins/workspace/CodeAsPipelineFromGit/testing.jar'
+    sh 'java -jar /var/lib/jenkins/workspace/CodeAsPipeline/testing.jar'
     
     }
     stage('ContinuousDelivery') {
