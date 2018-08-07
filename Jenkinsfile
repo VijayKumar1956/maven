@@ -14,7 +14,7 @@ node('master') {
     }    
     stage('ContinuousDepolyment') {
         
-    sh 'scp -pr  /var/lib/jenkins/workspace/CodeAsPipeline/webapp/target/webapp.warr vagrant@10.10.10.22:/var/lib/tomcat7/webapps/qaenv.war'
+    sh 'scp -pr  /var/lib/jenkins/workspace/CodeAsPipeline/webapp/target/webapp.war vagrant@10.10.10.22:/var/lib/tomcat7/webapps/qaenv.war'
         
     }
     stage('ContinuousTesting') {
